@@ -1,6 +1,6 @@
 # Files Notes
 
-These notes contain detailed desctiptions files relevant for incircuit testing with Keystone 3070. Not all files are covered here; an overview of all directories and files can be found in the general notes.
+These notes contain detailed desctiptions files relevant for incircuit testing with Keysight 3070. Not all files are covered here; an overview of all directories and files can be found in the general notes.
 
 excerpt from `General Notes.md`
 

@@ -1,6 +1,6 @@
 # General Notes
 
-These notes will cover the important bits of information when doing in-circuit testing [ICT] using the Keystone / Agilent / HP 3070 ICT machines; they are all a continuation of the same machine, just the manufacturer has changed names over the years.
+These notes will cover the important bits of information when doing in-circuit testing [ICT] using the Keysight / Agilent / HP 3070 ICT machines; they are all a continuation of the same machine, just the manufacturer has changed names over the years.
 
 ## Overview
 
@@ -46,7 +46,7 @@ If an integrated circuit [IC] can be tested with TestJet, ConnectCheck, or custo
 
 To debug tests, use PushButton Debug [PBD].
 
-## Keystone / Agilent / HP 3070
+## Keysight / Agilent / HP 3070
 
 This is divided into four quadrants, called modules; each module column is called a bank. Underneath each module is a vacuum pump, labelled a,b,c,d.
 
@@ -65,7 +65,7 @@ These cards are multiplexed [MUX], this allows for shared resources and thus mor
 
 ### Module Control Card
 
-This card manages the actual measurement process within the given module. It has 8 general purpose [GP] relays: 100Vpeak or 1A, max 30W.
+This card manages the actual measurement process within the given module. It has 8 general purpose [GP] relays: 100 Vpeak or 1 A, max 30 W.
 
 During Analog Incircuit tests, all test resources are within one module by design.
 
@@ -81,6 +81,8 @@ When an analog incircuit test is executed, this card applies the appropriate sti
 - Frequency readings are done by control card
 
 The heart of the ASRU is the Measuring Operational Amplifier [MOA].
+
+The S bus is for the source, and the I bus is for the input; these are used by the MOA for the analog measurements.
 
 ### Pin Card + MUX
 
@@ -189,3 +191,5 @@ To initialize and take control of Testhead:
 To run a test:
 
 - Macros > Testplan Macros > {test}
+
+##
