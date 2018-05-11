@@ -32,6 +32,10 @@ Below is an except from `General Notes.md`
 >   - Incircuit tests with probe
 >   - Interconnect tests with TDI / TDO
 
+## Preshorts
+
+Test run before Shorts test to ensure switches, jumpers, potentiometers are functioning, since they would cause Shorts test to fail.
+
 ## Shorts
 
 Uses 0.1V source and 100Ω resistor, which are not adjustable.
@@ -61,3 +65,9 @@ Shorts that were detected, but could not be isolated.
 ## Pins
 
 This tests connects all pins to ground, except one. It checks for current flow at this pin, and assumes board connection if there is current flow.
+
+**Different from shorts:** because it uses 2.5V [instead of 0.1V] to ensure diode / transistors will turn on; uses 10kΩ [instead of 100Ω].
+
+If the software is trying to reverse bias a diode, it will use -2.5V.
+
+A node between two capacitors is isolated since no current can flow, and cannot be tested with pins test; thus the test should be commented out only when nodes are isolated.

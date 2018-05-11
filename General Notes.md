@@ -175,3 +175,17 @@ This probe comprises of three parts:
 - TestJet pins
 
 A small TestJet probe is used to test polarized capacitores.
+
+## PushButton Debug
+
+The interface used to verify the fixture, and to run and debug new tests.
+
+To initialize and take control of Testhead:
+
+- use the `Testhead is 1` macro
+- `fixture lock`
+- `get basic "testplan"`
+
+To run a test:
+
+- Macros > Testplan Macros > {test}
