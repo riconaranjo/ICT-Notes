@@ -38,3 +38,17 @@ vacuum well a is 2, 3
 Some tests will fail due to a short pin not being able to make contact with the board, when it should be in contact. This can be recognized because the voltage values at a node are consistent but lower than expected [e.g. 0.4 V, instead of 3 V].
 
 **Fix:** Use longer version of pin.
+
+## Diode Analog Tests
+
+If a test is failing it may be due to the diode being placed backwards; test this by reversing the **s** and **i** buses. If this is the case, the diode needs to be corrected or a new board used.
+
+If this is not the reason for the failure, it may be due to low current [due to current leakage] across the device, thus not reaching the correct votlage drop; this can be fixed by modifying the current being run across the diode.
+
+**The steps for this are:**
+
+- Debug Selected Test
+- Compile and Go
+- _adjust current [or add a wait of 200 ms]_
+- Save
+- Compile Tests

@@ -191,5 +191,3 @@ To initialize and take control of Testhead:
 To run a test:
 
 - Macros > Testplan Macros > {test}
-
-##
