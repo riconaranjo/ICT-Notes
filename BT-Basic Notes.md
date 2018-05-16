@@ -28,9 +28,9 @@ The Board Test-BASIC text editor used to modify the test suite. It is mostly bas
 - `board consulant` Use this to open the board consultant [short: `board cons`]
 - `cat` lists all the directories and then files in the current file path location.
 - `cd "<directory>"` change directory to file path [also: `msi`]
-- `change "<string>"` change _string_ through the file
-- `changem "<string>"` change _string_ within marked text
-- `changen "<string>"` change next occurance of _string_
+- `change "<string>" to "<string>"` change _string_ through the file
+- `changem "<string>" to "<string>"` change _string_ within marked text
+- `changen "<string>" to "<string>"` change next occurance of _string_
 - `copy "<source>" to "<destination>"` copy file to file path [overwrite with `over` instead of `to`]
 - `check board "<file>", error` Use this to check the syntax on the file, with errors returned in variable `error`;
   - use this before compilation of _board_ and _board\_xy_.
@@ -69,3 +69,13 @@ You can use numerals suffixes to specify component values and other numbers.
 
 - `ed` extra digit [use when testing at 128 Hz]
 - `en` enhanced [more accurate meaurement]
+
+## Modifying Component Values
+
+Sometimes component values will not be imported correctly from the Bill Of Materials [BOM] and you will have to input these in by hand. It is quicker to change all occurances of a string to change all components of the same type all at once.
+
+First you must open the `board` file in BT-Basic. You want to do a string search  like `findn "bom"` in order to see which compenents need updating; for me the components say `"TO_BE_VERIFYED_AGAINST_BOM"` [sic] in the error message field.
+
+Component values should be added to the `board` file based-off the Standard Operating Procedure [SOP] since there are some cases where the tolerances will be different from the BOM.
+
+The procedure for this is found in the SOP for Application Development.
