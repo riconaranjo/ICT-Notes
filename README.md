@@ -4,12 +4,11 @@ These are my notes I wrote while working as an incircuit testing [ICT] coop at S
 
 ## Table of Contents
 
-- Files Notes.md
-- General Notes.md
-- Debugging Notes.md
-- Sanmina Journal.md
-- Tests.md
-- README.md
-- Part Descriptions.md
-- Additional Notes.md
-- BT-Basic Notes.md
+- [Additional Notes](Additional%20Notes.md)
+- [BT-Basic Notes](BT-Basic%20Notes.md)
+- [Debugging Notes](Debugging%20Notes.md)
+- [Files Notes](Files%20Notes.md)
+- [General Notes](General%20Notes.md)
+- [Part Descriptions](Part%20Descriptions.md)
+- [Sanmina Journal](Sanmina%20Journal.md)
+- [Tests](Tests.md)
