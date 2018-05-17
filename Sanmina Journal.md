@@ -12,4 +12,6 @@ This is a simple journal describing the daily / weekly activities and accomplish
 
 **Fourth Day:** Had my first ICT team meeting; we went through all the current projects and any issues we are experiencing. Reading through 'Agilent 3070 User Fundamentals' Volume 1. Writing notes in markdown helps reinforce and condense the information. Kelvin showing me more about the tests; things are finally making sense.
 
-**Fifth Day:**
+...
+
+**Second Week:** Started going through missing libraries and creating any missing ones. Ned and Kelvin have been extremely helpful and patient explaining to me any question I have. Finished all the easy libraries, now moving on to more complicated device libraries. Weekly meeting went well, 4 boards are expected next week, including the board I am writing libraries for.

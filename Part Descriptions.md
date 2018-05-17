@@ -2,11 +2,112 @@
 
 Part Descriptions or Part Libraries, are files that define all the components in a device. For example, a BJT can be described as two diodes, or a resistor pack is just a bunch of resistors with pins for each side of the resistor. This allows for quicker defintion of multiple components. For example, using 10 resistor packs [each with 10 resistors] and defining each resistor would require 100 component definitions; instead, if we define a part library for the resistor pack we only have to define the 10 resistors, and then 10 resistor packs. When this is repeated for various components much time is saved, and allows for the part library to be reused with other boards in the future.
 
+## Types of libraries
+
+There are four main types of description libraries:
+
+- Part
+- Analog
+- Digital
+- Mixed [both analog + digital]
+
+Part libraries will describe things like resistor packs [a bunch of resistors in an IC], or can be used to group a series of other analog and digital libraries for the same device.
+
+### Part
+
+Part libraries only define external pins and internal nodes; they describe how internal components connect.
+
+For an example on how to create part libraries, look at the example in the **Jumper** section below.
+
+### Analog
+
+Analog libraries define powered and nonanalog pins [any other pins can be omitted]. Nonanalog pins are pins that are driven but do not need to be measured [e.g. pins shorted together, only one is measured — rest are nonanalog].
+
+For analog setup test only libraries, you want to:
+
+- define power pins
+- define nonanalog pins
+- create `on failure` message
+- test input works
+- test output works
+
+``` basic
+
+!*****************************
+' header here
+!*****************************
+
+test powered analog
+
+   power pins 5,7
+
+   nonanalog pins 6
+
+   on failure
+      report "Input voltage failed, do not replace this device"
+      report "Check upstream devices first"
+      report "Output measurment skipped"
+      exit test
+   end on failure
+
+   test "Measure_Input"
+   off failure
+
+   test "Measure_Output"
+
+end test
+
+subtest "Measure_Input"
+   connect i to pins 1
+   connect l to pins 3
+
+   detector dcv, expect 48 * 1.1
+   measure 48 *1.1, 48 *0.90
+
+end subtest
+
+subtest "Measure_Output"
+
+   on failure
+      report "Also check LXXXX" '!Modify/remove as needed
+   end on failure
+
+   connect s to pins 2
+   connect i to pins 8
+   connect l to pins 4
+
+   detector dcv, expect 12 * 1.05
+   measure 12 * 1.05, 12 * 0.95
+
+   off failure
+
+end subtest
+```
+
+### Digital
+
+Digital libraries define which pins are powered, input, output, bidirectional, and nondigital pins. Nondigital pins are pins that are driven but do not need to be measured [e.g. pins shorted together, only one is measured — rest are nondigital].
+
+For digital setup test only libraries, you want to:
+
+- define test parameters [sequential, test time, vector cycle, receive delay, family]
+- assign pin names to pins [power, input, output, bidirectional, nondigital]
+- define power pins
+- define input pins
+- define output pins
+- define bidirectional pins
+- define nondigital pins
+- define disable [which pins to which values to enable high-Z state at the output]
+
+For an example, you can find it in the **Disable Pins [Digital Library]** section.
+
 ## Defining Custom Libraries
 
-Sometimes, the a library for a device is not already written and we need to create a new one. These are the steps needed to create the custom library.
+Sometimes, the a library for a device is not already written and we need to create a new one. These are the steps needed to create the custom library. Before creating one from scratch try and find if you can use an existing library; even if the library doesn't work completely you can use it as a template and modify only a few things.
 
-`// custom libraries go into the /custom_lib folder`
+`// custom libraries go into the <board_number>/custom_lib folder`
+
+This will give you all the existing libraries for similar components [ask if you don't know what you should be searching].
 
 After the `board` and `board_xy` files are generated, and the perl script is run to populate the component values and information, you need to manually find the values that were not imported; it will be these components that need custom libraries.
 
@@ -23,6 +124,19 @@ Once you have identified which components are missing, you can find the componen
 
 Rename the `PN` to the manufacturer part number [found in BOM], except for oscillators you may use a more descriptive name such as `osc_100mhz_4pin`, since this makes reusability of libraries easier.
 
+### Finding Existing Custom Libraries
+
+You can search in file explorer for existing libraries using the search bar; you want to find libraries with similar numbers.
+
+`// you should do this first, before writing a library from scratch`
+
+For example a 128 Mbit flash memory component might have a library named `m25qu128`. You want to enter `*25*128` in the search box.
+
+- the `*` matches with everything
+  - `asd25jkl128a_so16` would match
+
+After finding a library you can use, copy it to the `/custom_lib` folder, and all the pin libraries it references.
+
 ## Making Changes
 
 **Digital** and **analog** tests are run not from the source code but rather the compiled object files.
@@ -36,7 +150,7 @@ After modifying digital or analog libraries, very your changes didn't break anyt
 
 Also make sure to add a warning that the current library is unverified by adding the line:
 
-`warning "library is unverified"`
+`warning "This library is unverified."`
 
 ## Safeguard
 
@@ -46,7 +160,7 @@ In order to ensure devices are not damaged by unexpected shorts and the board dr
 
 Electrical components are designed to function within _families_. These families all use the same voltage, so this allows for quick and easy circuit design since components can be reused and added like modules. _The family is also defined in the pin libraries, but that will be covered in a different section._
 
-The picture above shows all the families that can be defined in the Custom Library for a component. You want to select the family with the lowest current that is greater than I_OL, but also relates to thge device; you wouldn't use the `hi_oc_httl` safeguard with a buffer.
+The picture above shows all the families that can be defined in the Custom Library for a component. **You want to select the family with the lowest current that is greater than I_OL**, but also relates to thge device; you wouldn't use the `hi_oc_httl` safeguard with a buffer.
 
 ### Example
 

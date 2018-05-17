@@ -2,6 +2,8 @@
 
 These notes will cover the important bits of information when doing in-circuit testing [ICT] using the Keysight / Agilent / HP 3070 ICT machines; they are all a continuation of the same machine, just the manufacturer has changed names over the years.
 
+This file gives a general overview of ICT and the hardware of the 3070.
+
 ## Overview
 
 The 3070 machine generates a signal, which is transmitted to the printed circuit board [PCB] thorugh probes, then back to the machine. If the expected signal is read by the machine, then the test will pass.

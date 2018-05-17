@@ -42,6 +42,7 @@ The Board Test-BASIC text editor used to modify the test suite. It is mostly bas
 - `findm "<string>"` find string in marked text
 - `findn "<string>"` find next occurrence of string
 - `get "<file>"` open file [also: `load`]
+- `get part "<file>"` open part library [also: `load`]
 - `list "<file>"` prints file in workspace with line numbers
 - `save "<file>"` saves current workspace to a file with specified name
 - `savem "<file>"` saves marked text to a with specified name
