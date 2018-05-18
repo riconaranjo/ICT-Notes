@@ -4,7 +4,6 @@ These are my notes I wrote while working as an incircuit testing [ICT] coop at S
 
 ## Table of Contents
 
-- [Additional Notes](Additional%20Notes.md)
 - [BT-Basic Notes](BT-Basic%20Notes.md)
 - [Debugging Notes](Debugging%20Notes.md)
 - [Files Notes](Files%20Notes.md)
