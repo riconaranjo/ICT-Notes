@@ -70,13 +70,3 @@ You can use numerals suffixes to specify component values and other numbers.
 
 - `ed` extra digit [use when testing at 128 Hz]
 - `en` enhanced [more accurate meaurement]
-
-## Modifying Component Values
-
-Sometimes component values will not be imported correctly from the Bill Of Materials [BOM] and you will have to input these in by hand. It is quicker to change all occurances of a string to change all components of the same type all at once.
-
-First you must open the `board` file in BT-Basic. You want to do a string search  like `findn "bom"` in order to see which compenents need updating; for me the components say `"TO_BE_VERIFYED_AGAINST_BOM"` [sic] in the error message field.
-
-Component values should be added to the `board` file based-off the Standard Operating Procedure [SOP] since there are some cases where the tolerances will be different from the BOM.
-
-The procedure for this is found in the SOP for Application Development.

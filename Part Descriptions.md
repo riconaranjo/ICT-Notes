@@ -2,6 +2,18 @@
 
 Part Descriptions or Part Libraries, are files that define all the components in a device. For example, a BJT can be described as two diodes, or a resistor pack is just a bunch of resistors with pins for each side of the resistor. This allows for quicker defintion of multiple components. For example, using 10 resistor packs [each with 10 resistors] and defining each resistor would require 100 component definitions; instead, if we define a part library for the resistor pack we only have to define the 10 resistors, and then 10 resistor packs. When this is repeated for various components much time is saved, and allows for the part library to be reused with other boards in the future.
 
+## Modifying Component Values
+
+Sometimes component values will not be imported correctly from the Bill Of Materials [BOM] and you will have to input these in by hand into the `board` file. It is quicker to change all occurances of a string to change all components of the same type all at once.
+
+First you can open the `board` file in BT-Basic. You want to do a string search  like `findn "bom"` in order to see which compenents need updating; for me the components say `"TO_BE_VERIFYED_AGAINST_BOM"` [sic] in the error message field.
+
+_alternatively you can use another text editor to edit the `board` file but you must make sure not to add foreign characters [you can use the `check board "board"` command to ensure you did not]_
+
+Component values should be added to the `board` file from the BOM, but refer to the Standard Operating Procedures [SOP] since there are some cases where the tolerances will be different from the BOM. If you don't know where this is, ask.
+
+_The procedure for this is found in the SOP for Application Development._
+
 ## Types of libraries
 
 There are four main types of description libraries:
