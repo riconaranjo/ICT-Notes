@@ -33,15 +33,26 @@ For an example on how to create part libraries, look at the example in the **Jum
 
 ### Analog
 
-Analog libraries define powered and nonanalog pins [any other pins can be omitted]. Nonanalog pins are pins that are driven but do not need to be measured [e.g. pins shorted together, only one is measured — rest are nonanalog].
+Analog libraries define powered and nonanalog pins [any other pins can be omitted]. Power pins are pins that will be either a set voltage or ground; if a pin might be floating [not connected to anything] then it will be a nonanalog test. Generally, power pins are input and output pins that are not measured [used in a test] and anything else is a nonanalog pin.
 
 For analog setup test only libraries, you want to:
 
-- define power pins
-- define nonanalog pins
+- define power pins [voltage does not vary]
+- define nonanalog pins [may be floating]
 - create `on failure` message
 - test input works
 - test output works
+- test power good signal works
+
+It better to work backwards to write an analog library: first write the subtests, then define power and nonanalog pins.
+
+For the input subtest, select one input and connect `i` to it and connect `l` to a ground pin. All other input pins should be defined as power pins.
+
+For the output subtest, select one ouput and connect `i` to it, connect `l` to a ground pin, and connect `s` to the enable pin [if there is one]. All other output pins should be defined as power pins.
+
+Additionally you can write a power good [PG] subtest: connect `i` to PG pin and connect `l` to ground pin.
+
+At the end of every test you need to measure [`i` bus] the voltage to ensure correct functionality; the expected voltage should be based of the circuit schematic.
 
 ``` basic
 

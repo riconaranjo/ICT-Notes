@@ -15,3 +15,5 @@ This is a simple journal describing the daily / weekly activities and accomplish
 ...
 
 **Second Week:** Started going through missing libraries and creating any missing ones. Ned and Kelvin have been extremely helpful and patient explaining to me any question I have. Finished all the easy libraries, now moving on to more complicated device libraries. Weekly meeting went well, 4 boards are expected next week, including the board I am writing libraries for.
+
+**Third Week:** Finished the libraries I was working on last week and updated the I2C tests for one device. Learned about the python scripts used by the team; started creating one to parse the board files and get all the parts missing libraries.
