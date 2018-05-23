@@ -5,6 +5,7 @@ These are my notes I wrote while working as an incircuit testing [ICT] coop at S
 ## Table of Contents
 
 - [BT-Basic Notes](BT-Basic%20Notes.md)
+- [Board Grading Notes](Board%20Grading%20Notes.md)
 - [Debugging Notes](Debugging%20Notes.md)
 - [Files Notes](Files%20Notes.md)
 - [General Notes](General%20Notes.md)
