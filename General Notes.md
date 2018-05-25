@@ -193,3 +193,20 @@ To initialize and take control of Testhead:
 To run a test:
 
 - Macros > Testplan Macros > {test}
+
+## Nodes
+
+There are four different types of nodes that can be defined:
+
+- **critical**
+  - node is susceptible to noise
+- **must be short**
+  - node is not critical for testing
+- **must be long**
+  - node is critical for testing
+- **fixed**
+  - node is connected to power or ground via jumper
+
+### Fixed Nodes
+
+Capacitors with the prefix `FB` are always used as filters from power so their pins will always be fixed nodes.

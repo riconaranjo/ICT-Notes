@@ -25,6 +25,8 @@ There are four main types of description libraries:
 
 Part libraries will describe things like resistor packs [a bunch of resistors in an IC], or can be used to group a series of other analog and digital libraries for the same device.
 
+When you write a library that is package specific, you should suffix the file name with `_<package>`.
+
 ### Part
 
 Part libraries only define external pins and internal nodes; they describe how internal components connect.
