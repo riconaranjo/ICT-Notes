@@ -206,7 +206,38 @@ There are four different types of nodes that can be defined:
   - node is critical for testing
 - **fixed**
   - node is connected to power or ground via jumper
+  - or, node that should not be driven during testing
 
 ### Fixed Nodes
 
-Capacitors with the prefix `FB` are always used as filters from power so their pins will always be fixed nodes.
+Quick tip: fuses with the prefix `FB` are always used as filters from power so their pins will always be fixed nodes.
+
+'Jumpers' include inductors, low-value resistors, fuses, and kelvin connects.
+
+## Board Placement
+
+Board placement can be run from a BT-Basic window with the command `board placement`. You most likely want the board placed in the centre of the test fixture with no rotation so you should use the command with these options: `board placement;center, rotation 0`.
+
+You can only run this command once, so if you try running it again you will get errors. You can run board placement if you delete the `fixture/` folder.
+
+## Fixture Consultant
+
+You can use fixture consultant to view fixture resources and change the placement of the board.
+
+In order to verify that test resources are not covered up by component pins you can view blocked pins by selecting from the menubar _Place Board_ and selecting _Estimate Blocked Pins_ in the pop-up window. This will show all the pins that may be blocked if the board is placed on this location of the board. There will be a lot of pins that appear to be blocked but can be safely ignored, including Pin Card Resource pins and Hyrbrid Ground pins. If in doubt which blocked pins may be safely ignored, ask.
+
+Avoid blocked pins:
+
+- TestJet
+- rcvc
+- gprelays
+
+### Board Placement
+
+You can move the board around the test fixture in order to reduce blocked resources. This is done by going to the _Place Board_ pop-up and dragging the board around.
+
+### Placement information in `board_xy` file
+
+Sometimes during the development process the fixture folder may be deleted, but in order to save time finding an acceptable placement that does not block too many resources, this placement is added to the `board_xy` file. These values are overridden by the fixture files but it means that the board placement does not need to start from scratch.
+
+You can get the placement in the `fixture.o` file by opening it in an external editor, as BT-Basic will not open the file since it thinks it is an object file [although this object file is actually a text file]. Copy the line that starts with `PLACEMENT` and add it to the `board_xy` file.

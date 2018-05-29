@@ -35,7 +35,7 @@ For an example on how to create part libraries, look at the example in the **Jum
 
 ### Analog
 
-Analog libraries define powered and nonanalog pins [any other pins can be omitted]. Power pins are pins that will be either a set voltage or ground; if a pin might be floating [not connected to anything] then it will be a nonanalog test. Generally, power pins are input and output pins that are not measured [used in a test] and anything else is a nonanalog pin.
+Analog libraries define powered and nonanalog pins [any other pins can be omitted]. Power pins are pins that will be either a set voltage or ground; if a pin might be floating [not connected to anything] then it will be a nonanalog test. _Generally, power pins are input and output pins that are not measured [used in a test] and anything else is a nonanalog pin._
 
 For analog setup test only libraries, you want to:
 

@@ -2,9 +2,12 @@
 
 These are my notes I wrote while working as an incircuit testing [ICT] coop at Sanmina. They encompass the most important things, as well as a general overview on how to use the Keysight 3070 for ICT.
 
+In order to make the most of these notes you should have an understanding of the Keysight 3070 ICT testing system and basic circuit understanding. You should not view these notes as the most thorough reference but as supplementary / introductory material. I hope this helps you understand things better overall.
+
 ## Table of Contents
 
 - [BT-Basic Notes](BT-Basic%20Notes.md)
+- [Board Consultant Notes](Board%20Consultant%20Notes.md)
 - [Board Grading Notes](Board%20Grading%20Notes.md)
 - [Debugging Notes](Debugging%20Notes.md)
 - [Files Notes](Files%20Notes.md)
