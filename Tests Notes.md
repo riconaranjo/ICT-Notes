@@ -40,7 +40,7 @@ Test run before Shorts test to ensure switches, jumpers, potentiometers are func
 
 ## Shorts
 
-Uses 0.1 V source and 100 Ω resistor, which are not adjustable.
+Uses 0.1 V source and 100 Ω resistor, which are not adjustable.
 
 **Two sections:** expected and unexpected shorts.
 
@@ -52,7 +52,7 @@ If an unexpected short is found, the hardware will isolate the nodes that are sh
 
 ### Threshold
 
-`threshold 16` defines that anything above 16 Ω is an open.
+`threshold 16` defines that anything above 16 Ω is an open.
 
 ### Settling Delay
 
@@ -68,7 +68,7 @@ Shorts that were detected, but could not be isolated.
 
 This tests connects all pins to ground, except one. It checks for current flow at this pin, and assumes board connection if there is current flow.
 
-**Different from shorts:** because it uses 2.5 V [instead of 0.1 V] to ensure diode / transistors will turn on; uses 10 kΩ [instead of 100 Ω].
+**Different from shorts:** because it uses 2.5 V [instead of 0.1 V] to ensure diode / transistors will turn on; uses 10 kΩ [instead of 100 Ω].
 
 If the software is trying to reverse bias a diode, it will use -2.5 V.
 
@@ -97,7 +97,7 @@ resistor <value> <+tol> <-tol> <option_list>
 - `wb` specified use of a WideBand frequency response
   - improves gain of MOA, which tends to improve repeatability
   - do not use when `re1` or `re2` are used, as tends to saturate MOA
-- `reX` reference resistor to 10^`X` Ω [`X` = 1...5]
+- `reX` reference resistor to 10^`X` Ω [`X` = 1...5]
 - `arX` ASRU's autorange to `X` V
 - `comp` / `nocomp` compensation, included for some small value capacitors
 
