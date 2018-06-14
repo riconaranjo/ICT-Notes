@@ -2,7 +2,7 @@
 
 These notes will cover the important bits of information when doing in-circuit testing [ICT] using the Keysight / Agilent / HP 3070 ICT machines; they are all a continuation of the same machine, just the manufacturer has changed names over the years.
 
-This file gives a general overview of ICT and the hardware of the 3070.
+This file gives a general overview of ICT and the hardware of the 3070. They don't have much of structure but larger topics have been moved to seperate files.
 
 ## Overview
 
@@ -241,3 +241,11 @@ You can move the board around the test fixture in order to reduce blocked resour
 Sometimes during the development process the fixture folder may be deleted, but in order to save time finding an acceptable placement that does not block too many resources, this placement is added to the `board_xy` file. These values are overridden by the fixture files but it means that the board placement does not need to start from scratch.
 
 You can get the placement in the `fixture.o` file by opening it in an external editor, as BT-Basic will not open the file since it thinks it is an object file [although this object file is actually a text file]. Copy the line that starts with `PLACEMENT` and add it to the `board_xy` file.
+
+## Every File
+
+Every file that is read using BT-Basic / IPG / Fixture consultant / etc needs to have an empty line at the end. Without this you will get unexpected errors and tests not compiled from testorder. Make sure you add / leave a **blank line** at the end of every text file.
+
+## File: `board_z`
+
+This file holds a pin library that models the impedance to ground from rails that have impedances lower than 1 kΩ. The first external pin of this library is connected to ground. It is modelled like a resistor pack, with one common node. This model needs to also be referenced in the `board` file.

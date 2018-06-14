@@ -20,13 +20,15 @@ To find which power supply are connected where, you can find it by searching for
 
 After creating the electronic nodes you need to connect the power supply reference output to these nodes. Using fixture consultant, open the _Fixture Wiring Diagram_ and _Search Specification Form_ windows. You can the first through the menubar option _Tasks_ > _View/Edit Fixture Electronics_ > _Add/Delete Wires_. For the second, go _Search_ > _For Node_. Type the electronic node name press _Show Wiring_; this will automatically display the node in the _Fixture Diagram_. [You can forgo the first step and the second step will open the _Fixture Diagram_ automatically] Repeat this for the three nodes [A, B, S].
 
-Now you need to add the pins from the supply. These pin numbers can be found in the power supply resources excel sheet, they will be a 5 digit number. You add these in the _Fixture Wiring Diagram_ window by adding it as an item. It may say `<OTHER Node>` since it is not connected to any other node. To add wires between these two nodes, you can type both nodes into the bottom section where is says _Specify Endpoints For New Wire:_, press _Add New Wire_. Repeat this three times per node, for each of the three nodes.
+Now you need to add the pins from the supply. These pin numbers can be found in the _power supply resources_ excel sheet, they will be a 5 digit number. You add these in the _Fixture Wiring Diagram_ window by adding it as an item. It may say `<OTHER Node>` since it is not connected to any other node. To add wires between these two nodes, you can type both nodes into the bottom section where is says _Specify Endpoints For New Wire:_, press _Add New Wire_. Repeat this three for the A and B nodes; sense [S] lines from the power supplies should be connected to one seperate probe.
 
 Now you have to do this for all the remaining power supplies.
 
 ### Wiring Power Supply to Pins
 
 Now that the power supply is connected to the electronic nodes, you need to connect these electronic nodes to pins on the fixture. You can find pins connected to the correct node on the board [e.g. `RTN`] by going through the menubar _Search_ > _For Node_ and finding the node then pressing _Locate_.You can then select any drilled hole and right clicking on it. This will open the _Node Information Form_ window with all the probes for this nodel; if no probes exist or you need more probes, you will have to add them [see section below]. You can then press the _Show Fixture Wiring For This Node_ to show it in the _Fixture Diagram_ window. Now connect the pins to the terminals; make sure to have enough pins based off the current that is expected: 2 probes for the first Amp, and one more for every additional Amp [e.g 1.6 A requires 4 probes since 1 + 0.5 + 0.1]. The sense [S] pin on the supplies does not have much current through it so the probes should mostly be connected to the other pins [A and B].
+
+Make sure to connect correct supply nodes. If you have -48 V power then the power supply high will be the board return at 0 V; the power supply low will be -48 V and will connect to the board power node. **Pay close attention to this.**
 
 #### Adding probes
 
