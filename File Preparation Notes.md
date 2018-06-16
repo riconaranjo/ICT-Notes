@@ -6,9 +6,9 @@ After the `board` and `board_xy` have been compiled, and the board placement dec
 
 Due to how the 3070 system works, it will not connect the power supply ground to the circuit ground. To overcome this, there is a simple workaround that has been created. All the pins of the high or low side of the power supply are connected to an electronic node with maximum wires so that when IPG runs, it will not be able to connect the power supply to real ground.
 
-Each power supply has three pins on the positive and negative outputs: A, B, and Sense [prefixed with L for low, or H for H]. Each one of these pins **on one of the ouputs** [positive or negative output, but not both] is connected with three wires [the maximum] to an electronic pin, which is named with the power supply number and the pin that is connected to [e.g. `PS1_LA`]. The pin names can be found in power supply resources excel sheet.
+Each power supply has three pins on the positive and negative outputs: A, B, and Sense [prefixed with L for low, or H for H]. Each one of these pins **on one of the ouputs** [positive or negative output, but not both] is connected with three wires [the maximum] to an electronic pin, which is named with the power supply number and the pin that is connected to [e.g. `PS1_LA`], for a total of three electronic pins per supply. The pin names can be found in the power supply resources excel sheet.
 
-It is important to only do this to the reference output, and not both, otherwise you will not be able to supply power to the board. The refernce voltage will be the negative output if the voltage is defined as positive [e.g. 48 V], but it will be the positive output if the output ius defined as negative [e.g. -48 V]. Make sure to read the SOP Appendix 7 about how to isolate the supply properly and why this is necessary.
+It is important to only do this to the reference output, and not both, otherwise you will not be able to supply power to the board. The reference voltage will be the negative output if the voltage is defined as positive [e.g. 48 V], but it will be the positive output if the output ius defined as negative [e.g. -48 V]. Make sure to read the SOP Appendix 7 about how to isolate the supply properly and why this is necessary.
 
 ### Creating Electronic Nodes
 
@@ -21,6 +21,8 @@ To find which power supply are connected where, you can find it by searching for
 After creating the electronic nodes you need to connect the power supply reference output to these nodes. Using fixture consultant, open the _Fixture Wiring Diagram_ and _Search Specification Form_ windows. You can the first through the menubar option _Tasks_ > _View/Edit Fixture Electronics_ > _Add/Delete Wires_. For the second, go _Search_ > _For Node_. Type the electronic node name press _Show Wiring_; this will automatically display the node in the _Fixture Diagram_. [You can forgo the first step and the second step will open the _Fixture Diagram_ automatically] Repeat this for the three nodes [A, B, S].
 
 Now you need to add the pins from the supply. These pin numbers can be found in the _power supply resources_ excel sheet, they will be a 5 digit number. You add these in the _Fixture Wiring Diagram_ window by adding it as an item. It may say `<OTHER Node>` since it is not connected to any other node. To add wires between these two nodes, you can type both nodes into the bottom section where is says _Specify Endpoints For New Wire:_, press _Add New Wire_. Repeat this three for the A and B nodes; sense [S] lines from the power supplies should be connected to one seperate probe.
+
+`// if caps lock is on, you will not be able to select the nodes / probes to specify wire endpoints`
 
 Now you have to do this for all the remaining power supplies.
 

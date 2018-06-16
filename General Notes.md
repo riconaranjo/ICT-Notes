@@ -240,7 +240,7 @@ You can move the board around the test fixture in order to reduce blocked resour
 
 Sometimes during the development process the fixture folder may be deleted, but in order to save time finding an acceptable placement that does not block too many resources, this placement is added to the `board_xy` file. These values are overridden by the fixture files but it means that the board placement does not need to start from scratch.
 
-You can get the placement in the `fixture.o` file by opening it in an external editor, as BT-Basic will not open the file since it thinks it is an object file [although this object file is actually a text file]. Copy the line that starts with `PLACEMENT` and add it to the `board_xy` file.
+You can get the placement in the `fixture.o`file  [or `fixture` file, see **File Preparetion Notes**] by opening it in an external editor, as BT-Basic will not open the file since it thinks it is an object file [although this object file is actually a text file]. Copy the line that starts with `PLACEMENT` and add it to the `board_xy` file.
 
 ## Every File
 
