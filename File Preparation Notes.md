@@ -10,6 +10,22 @@ Each power supply has three pins on the positive and negative outputs: A, B, and
 
 It is important to only do this to the reference output, and not both, otherwise you will not be able to supply power to the board. The reference voltage will be the negative output if the voltage is defined as positive [e.g. 48 V], but it will be the positive output if the output ius defined as negative [e.g. -48 V]. Make sure to read the SOP Appendix 7 about how to isolate the supply properly and why this is necessary.
 
+### Steps
+
+The steps to isolate a main power supplies for the test fixture are:
+
+1. Figure out which power supply output needs to be isolated [high or low]
+2. Figure out which pins correspond to these outputs [e.g. 21313 for PS3_LA]
+3. Mark probing locations as mandatory in board consultant
+4. Run _Probing Selection_ in fixture consultant
+5. Create electronic nodes
+6. Wire pins to electronic nodes [3 wires each, except sense lines only 1]
+7. Wire electronic nodes to Probes
+8. Remove alternate probing locations
+9. Rewire electronic nodes to Probes, since probe names may have changed
+
+`// For a Finn power supply, you don't have to connect the terminal to any probes`
+
 ### Creating Electronic Nodes
 
 To create an electronic node you can add the node from the fixture consultant through the menubar _Tasks_ > _View/Edit Fixture Electronics_ > _Add/Delete Nodes_. In the pop-up windows type the name of your new node and press _Add New Node_.
