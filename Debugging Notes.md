@@ -39,7 +39,7 @@ Some tests will fail due to a short pin not being able to make contact with the 
 
 **Fix:** Use longer version of pin.
 
-## Diode Analog Tests
+## Diode Analog Unpowered Tests
 
 If a test is failing it may be due to the diode being placed backwards; test this by reversing the **s** and **i** buses. If this is the case, the diode needs to be corrected or a new board used.
 
@@ -50,5 +50,16 @@ If this is not the reason for the failure, it may be due to low current [due to 
 - Debug Selected Test
 - Compile and Go
 - _adjust current [or add a wait of 200 ms]_
+  - check in library for current, or datasheet
 - Save
 - Compile Tests
+
+## LED Colour Unpowered Tests
+
+These tests require a `powered` command because the board fixture must be in the correct position, but the board will not be powered for these tests. The commands you need to run are shown below; commands seperated by `|` are the same as running the commands seperately. [`cps` means connect power source]
+
+`powered | cps | <sps from testplan>`
+
+The part from the testplan is the line that starts with sps in the test plan found the line before the colour powered LED test definition [e.g. `sps 1,5.0,0.2;optimize`].
+
+## Capacitor Analaog Unpowered Tests
