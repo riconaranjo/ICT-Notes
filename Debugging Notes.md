@@ -13,6 +13,14 @@ Use **PushButton Debug Program** to perform each test type:
 - Review _testability.rpt_ for 'Limited' or commented and debufg these
 - Use Test Grader to stress test the tests, and review
 
+## Stable Tests + CPK
+
+Tests should pass everytime they run, and should run on different boards that have slightly different values inherent in the reality of manufacturing electronics. A metric to measure test stability is Process Capability Index [CPK], which is the process capability adjusted for a non-centred distribution.
+
+CPK can very wildly from negative to over one thousand. Generally a an average good test will be around 100-300, but anything above 10 is can be considered stable.
+
+You can view the CPK of a given test by pressing the _Disp Meas_ or _Disp Histo_ button of the BT-Basic window. It will run the test 50 times and show different metrics. For analog debug, the display measurements option is more useful since it is quicker and doesn't require a new window opening; for board grading the histogram is more useful since it shows how close to the limits test measurements tend to be.
+
 ## Faon / Faoff / ...
 
 There are six very similar commands used to attach and detach the fixture connections:
@@ -62,4 +70,22 @@ These tests require a `powered` command because the board fixture must be in the
 
 The part from the testplan is the line that starts with sps in the test plan found the line before the colour powered LED test definition [e.g. `sps 1,5.0,0.2;optimize`].
 
-## Capacitor Analaog Unpowered Tests
+## Capacitor Analog Unpowered Tests
+
+- Swap `i` + `s` buses
+- Look in schematic for unguarded node
+- Try commenting out existing guards
+- Modify nominal value offset to pass the test
+- Increase / decrease tolerance to increase cpk
+
+If the measured capacitance value is negative, the capacitor is most likely shorted to ground via jumper [if the other node is connected to ground]. Check in the `board_z` file to make sure both the nodes of the capacitor are not present in the file; if they are then you can comment the test out, with a comment explaining it is shorted by a jumper
+
+`// capacitor tolerances should be limited to around +15%, -30%`
+
+## Custom 4-wire Tests
+
+- 
+
+## Diode Analog Unpowered Tests
+
+## Resistor Analog Unpowered Tests
