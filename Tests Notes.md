@@ -106,7 +106,8 @@ _For reactive components:_
 - `arX` ASRU's autorange to `X` V
 - `icoX` current compliance: `0` for 35 mA `1` for 150 mA
 - `frX` source frequency: [`X` = 128, 1024, 8192]
-  - `fr128` required for `ed` [extra digit]
+  - `ed` required for `fr128`
+  - `fr128` tends to be most unstable, `fr8192` most stable
 - `pm` / `sm` to account for parasitic resistances, parallel or series model
   - capacitors default is parallel
   - inductors default is series.

@@ -23,13 +23,13 @@ When the board grading script is run it will insert flags for certain tests; eac
 
 ## Setup
 
-Open KornShell and type `startdebug` on the test machine, from board working directory. In the BT-Basic window you can type `testhead is 1`, or select it as a Macro in the PushButton Debug program. Run the `pins` test macro in order to setup test fixture for debugging.
+Open KornShell and type `startdebug` on the test machine, from board working directory. In the BT-Basic window you can type `testhead is 1`, or select it as a Macro in the PushButton Debug program. **Run the `pins` test macro** in order to setup test fixture for debugging; this is important, otherwise tests will give strange results due to poor contact since vacuum wells will not be properly assigned otherwise.
 
 In order to evaluate the tests, open them in the **PushButton Debug** [PBD] program by either typing `debug "<part_name>"` in BT-Basic, or in the PBD window with _Debug > Debug Test_ and typing the part name into the window [e.g. r100]. You then want to run the test several times by pressing _display histo_ or _display meas_ in the BT-Basic window, or PBD window with _Display > Display Histogram / Display Measurement_.
 
 If you make any changes to the test file you need to press _Compile and Go_ before running _Display Histogram / Display Measurement_.
 
-### On First Login
+### On First Login to fixture machine
 
 - Map Network ICT drive
 - Run `setupenv.ksh` in KornShell
@@ -40,7 +40,9 @@ In order to quickly debug the test and show the histogram of the the results, yo
 
 `debug '<test_name>' | display histo`
 
-It is important to note that if you modify the tests outside the debug window, if you press run this command, it will not run your modified test as it needs to be compiled
+It is important to note that if you modify the tests outside the debug window, if you press run this command, it will not run your modified test as it needs to be compiled. You will have to reload the test [from _Debug Test..._], and press _Compile and Go_.
+
+Alternatively, you can open the push button debug program by running the `startdebug.pl` script by typing `startdebug` in a kornshell session located in the board directory, and then debug each test from the menu option _Debug Test..._.
 
 ## Modifying Tests
 

@@ -69,4 +69,4 @@ You can use numerals suffixes to specify component values and other numbers.
 ## Definitions
 
 - `ed` extra digit [use when testing at 128 Hz]
-- `en` enhanced [more accurate meaurement]
+- `en` enhanced [more accurate meaurement, also adds 10 ms wait]

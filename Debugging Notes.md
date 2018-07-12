@@ -72,11 +72,15 @@ The part from the testplan is the line that starts with sps in the test plan fou
 
 ## Capacitor Analog Unpowered Tests
 
-- Swap `i` + `s` buses
-- Look in schematic for unguarded node
-- Try commenting out existing guards
-- Modify nominal value offset to pass the test
-- Increase / decrease tolerance to increase cpk
+- try `ed`
+- check for possible guards on schematic
+- add wait [try `wa50m`, `wa150m`]
+- swap `i` + `s` buses
+- look in schematic for unguarded node
+- try commenting out existing guards
+- change frequency [`fr1024`,`fr8192`, `fr128`]
+- modify nominal value offset to pass the test
+- increase / decrease tolerance to increase cpk
 
 If the measured capacitance value is negative, the capacitor is most likely shorted to ground via jumper [if the other node is connected to ground]. Check in the `board_z` file to make sure both the nodes of the capacitor are not present in the file; if they are then you can comment the test out, with a comment explaining it is shorted by a jumper
 
@@ -84,8 +88,38 @@ If the measured capacitance value is negative, the capacitor is most likely shor
 
 ## Custom 4-wire Tests
 
-- 
+- try `ed`
+- check for possible guards on schematic
+- comment out both `a` + `b` buses
+  - make sure to also remove `sa` + `sb` options
+  - try just commenting just one of the two
+- remove the `en` option
+- add wait [try `wa50m`, `wa150m`]
+- add offset
+
+## Resistor Analog Unpowered Tests
+
+- try `ed`
+- check for possible guards on schematic
+- add wait [try `wa50m`, `wa150m`]
+- add an offset [for ≥ 100 Ω]
+  - as last resort, try to avoid
 
 ## Diode Analog Unpowered Tests
 
-## Resistor Analog Unpowered Tests
+Make sure test does not pass when `i` and `s` buses are swapped, so test can catch reversed diodes.
+
+- try `ed`
+- check for possible guards on schematic
+- check part library for breakdown current at given voltage
+  - if it is not there, go look in datasheet
+- try increasing current
+  - 1 mA, 5 mA, +5 mA until 50 mA
+- Diode tresholds should be 1.3•_vf_ 0.7•_vf_
+
+## Transistor Analog Unpowered Tests
+
+These tests function as two diode tests for each PN junction [BC and BE]
+
+- see steps for diode tests above
+
