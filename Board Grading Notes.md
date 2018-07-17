@@ -6,6 +6,8 @@ In order to measure how reliable an **analog test** is, it is run 50 times and t
 
 Even though a script runs all the tests and generated a report, every test is verified individually and run to make sure that it is within the correct bounds and with a high enough CPK.
 
+_Make sure to read the Debugging Notes since there is a lot of overlap between board grading and general debugging._
+
 ## Phase One and Phase Two
 
 There are two phases to testing; phase one is unpowered tests, and phase two is powered tests. The board grading results for each phase is in a seperate file.
