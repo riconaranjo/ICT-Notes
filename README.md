@@ -9,7 +9,6 @@ In order to make the most of these notes you should have an understanding of the
 - [BT-Basic Notes](BT-Basic%20Notes.md)
 - [Board Consultant Notes](Board%20Consultant%20Notes.md)
 - [Board Grading Notes](Board%20Grading%20Notes.md)
-- [Board Grading Notes.pdf](Board%20Grading%20Notes.pdf)
 - [Debugging Notes](Debugging%20Notes.md)
 - [File Preparation Notes](File%20Preparation%20Notes.md)
 - [Files Notes](Files%20Notes.md)
