@@ -51,6 +51,13 @@ Some tests will fail due to a short pin not being able to make contact with the 
 
 **Fix:** Use longer version of pin.
 
+## Creating Macros
+
+For cluster tests, there is no macro generated, thus you can create a macro to make it easier to run them all, and debug them.
+
+// todo
+...
+
 ## Diode Analog Unpowered Tests
 
 If a test is failing it may be due to the diode being placed backwards; test this by reversing the **s** and **i** buses. If this is the case, the diode needs to be corrected or a new board used.
@@ -121,6 +128,7 @@ Make sure test does not pass when `i` and `s` buses are swapped, so test can cat
 
 - try `ed`
 - check for possible guards on schematic
+- add wait [try `wa50m`, `wa150m`]
 - check part library for breakdown current at given voltage
   - _if it is not there, go look in datasheet_
 - try increasing current
@@ -129,9 +137,32 @@ Make sure test does not pass when `i` and `s` buses are swapped, so test can cat
 
 ## Transistor Analog Incircuit
 
+### BJTs
+
 These tests function as two diode tests for each PN junction [BC and BE]
 
 - see steps for diode tests above
+
+### MOSFETs
+
+These tests will turn the transistor on and off, measure VDS and will pass if the measurements between VDS_ON and dVDS_OFF are above a given threshold.
+
+These tests may often fail because the transistor is **on / off in both states**, thus the difference will be close to zero.
+
+**Reasons for same measurements:**
+
+- if both measurements are **near zero**, then the FET probably is not being turned on
+  - check that applied voltages are correct for PMOS / NMOS
+  - check if there is a BJT that controls FET that isn't being turned on
+  - perhaps IC has a surge protection diode that shorts FET
+  - VGD cannot be 0, VDS cannot be 0
+- if both measurements are **not close to zero**, then the FET is not being turned off
+  - check that applied voltages are correct for PMOS / NMOS
+
+These may also fail because the the calculated value is not above the threshold. If this is the case:
+
+- Add guards if applicable
+- Reduce thresold to about 70% of actual measured value.
 
 ## Jumper Analog Incircuit
 
@@ -163,3 +194,7 @@ In order to find if this is the case:
 ### Closed Jumpers
 
 Closed jumpers are used to ensure jumpers that should be populated are actually placed on the board. These tests will have a small threshold like 6.8 Ω, and anything **below this a pass**.
+
+// todo
+
+...

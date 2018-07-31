@@ -1,6 +1,6 @@
 # My Notes
 
-These are my notes I wrote while working as an incircuit testing [ICT] coop at Sanmina. They encompass the most important things, as well as a general overview on how to use the Keysight 3070 for ICT.
+These are my notes I wrote while working as an incircuit testing [ICT] coop at Sanmina. They encompass the most important things, as well as a general overview on how to use the Keysight 3070 for ICT. They are mostly based off the _Agilent 3070 User Fundamentals_ manuals, and my own personal experience. Do not assume these notes are entire correct since I wrote these while learning myself. Challenge everything that is written in here, and make sure it agrees with your understanding before accepting anything as fact.
 
 In order to make the most of these notes you should have an understanding of the Keysight 3070 ICT testing system and basic circuit understanding. You should not view these notes as the most thorough reference but as supplementary / introductory material. I hope this helps you understand things better overall.
 
