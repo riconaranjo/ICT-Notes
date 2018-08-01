@@ -166,13 +166,23 @@ These may also fail because the the calculated value is not above the threshold.
 
 ## Jumper Analog Incircuit
 
-There are two types of jumper tests: **open** and **closed**
+There are two types of jumper tests: **open** and **closed**. Ensure `faon` command is called before running these tests.
 
 ### Open Jumpers
 
 Open jumper tests check to make sure that two nodes are not connected often due to jumpers that should not be stuffed. Usually with a treshold of 10 kΩ or 2 MΩ, anything **above this is a pass**.
 
-Ususally the steps to debug an open jumper involves finding guard and adding it, if it not shorted by a power node.
+Sometimes the threshold is low [3 Ω] due to short by power node; these tests may still be valid. If the test is measuring large values, even though the threshold is very low:
+
+- increase threshold to `10k`
+
+Often the steps to debug an open jumper involves finding guard and adding it, if it not shorted by a power node.
+
+Commonly, open jumper tests measurement will appear as negative; this is due to overflow since the measured value was so large. Thus, the test is still valid. If the values are unstable:
+
+- add `ed`
+- add wait [`wa100m`, `wa25m`, etc]
+- add `en`
 
 #### Shorted by Power Nodes
 
@@ -184,12 +194,13 @@ Open jumper tests will often show invalid measurement values and warnings such a
 
 This means that the measured value was actually very different from what was expected, and as such the reference resistor value is inadequate. For example, it may be measuring 6 Ω instead of an expected 10 kΩ.
 
-This is often a sign that one of the nodes across the open jumper are shorted by some power node. This means the test is invalid due to the topology of the board.
+This is often a sign that one of the nodes across the open jumper are shorted by some power node. This means the test may be invalid due to the topology of the board.
 
 In order to find if this is the case:
 
 - replace `re4` with `re1`
 - if the measured value is around ~10 then there is a short between the nodes used in the test
+  - check is test should be commented or if threshold should be reduced
 
 ### Closed Jumpers
 

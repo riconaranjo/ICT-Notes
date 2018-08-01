@@ -54,6 +54,7 @@ After every test is verified a comment [with name] is added in the board results
 
 ### Steps
 
+- `faon`
 - _Debug Selected Test..._ [PBD]
 - _display histo_          [BT-Basic]
 - Analyze for mean too close to limits or low CPK
@@ -69,7 +70,7 @@ After every test is verified a comment [with name] is added in the board results
 - _Mark_            [PBD]
 - _OK_              [PBD]
 
-## Resistors
+## Resistor
 
 Sometimes resistor tests may fail or have a low CPK and will need adjusting to make the test more reliable.
 
