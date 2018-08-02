@@ -249,3 +249,10 @@ Every file that is read using BT-Basic / IPG / Fixture consultant / etc needs to
 ## File: `board_z`
 
 This file holds a pin library that models the impedance to ground from rails that have impedances lower than 1 kΩ. The first external pin of this library is connected to ground. It is modelled like a resistor pack, with one common node. This model needs to also be referenced in the `board` file.
+
+## Moving Fixtures
+
+- Faoff
+- Disconnect air hoses + cables
+  - these are located behind the fixture
+- Align lift with fixture
