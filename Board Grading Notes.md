@@ -17,8 +17,9 @@ Phase Two: `bdg_results_phase_two`
 
 ## Flags
 
-When the board grading script is run it will insert flags for certain tests; each test can have multiple flags, or none at all. These flags are: M, C, F.
+When the board grading script is run it will insert flags for certain tests; each test can have multiple flags, or none at all. These flags are: `N`, `M`, `C`, `F`.
 
+**N:** Narrow, Margin too small _[you will only see this with preshorts]_
 **M:** Mean, the mean measurement is close to upper or lower limit, or is not centred
 **C:** CPK, the CPK value is low, test may need adjustments
 **F:** Fail, test failed at least once
@@ -105,3 +106,15 @@ Follow the same steps as above.
 Sometimes, although a test may be flagged to have a low CPK, it may not need adjustment. If the test is run multiple times [~50] and the CPK is measured to be well above 10, **and the measurement is centred**, then no adjustments need to be made. Comment the measured CPK in the board grading results file.
 
 Other times, the CPK may be well above 10 [e.g. 600] but the measurement is not centred. This still means the test needs adjustment to ensure the test is reliable.
+
+## Jumpers
+
+In preshorts, many jumpers will be flagged either `N`, `F`, or `NF`. `N` means the limit is too narrow, but tests did not fail; `F` means failed test; `NF` means both a narrow limit and test failed.
+
+### Closed Jumper
+
+Practically all the closed jumpers flagged in phase 1 board grading will have only the `N` flag. The standard procedure for this is to add 2.5 Ω to the limit. I created a script to do this automatically; all you should have to do is run each test, verify it passes, and mark it as permanent.
+
+### Opem Jumper
+
+Open jumper tests will often have a threshold of 10 kΩ, but with a measurement of MΩ, sometimes negative MΩ. This is because of overflow, due to very large measurements. If the tests only have the `N` flag, and the tests pass when you run them, then you do not need to make any changes.
