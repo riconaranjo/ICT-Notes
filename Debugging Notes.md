@@ -55,8 +55,7 @@ Some tests will fail due to a short pin not being able to make contact with the 
 
 For cluster tests, there is no macro generated, thus you can create a macro to make it easier to run them all, and debug them.
 
-// todo
-...
+You can copy the files from another macro, such as the Analog Incircuit macro and simply change the file names and corresponding variables so they match the `testplan` file.
 
 ## Diode Analog Unpowered Tests
 
@@ -206,6 +205,6 @@ In order to find if this is the case:
 
 Closed jumpers are used to ensure jumpers that should be populated are actually placed on the board. These tests will have a small threshold like 6.8 Ω, and anything **below this a pass**.
 
-// todo
+The standard procedure for closed jumper tests flagged in board in board grading with the `N` flag, is to add add an offset of 2.5 Ω. I created a script that does this for the corresponding tests, but the tests must be manually marked permanent after running this script.
 
-...
+If a closed jumper test is failing, it may be caused by bent or miswired probes. This will required further investigation on a case-by-case basis.

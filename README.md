@@ -4,6 +4,8 @@ These are my notes I wrote while working as an incircuit testing [ICT] coop at S
 
 In order to make the most of these notes you should have an understanding of the Keysight 3070 ICT testing system and basic circuit understanding. You should not view these notes as the most thorough reference but as supplementary / introductory material. I hope this helps you understand things better overall.
 
+**Diclaimer:** These notes should not be considered as true reference, as these notes were written while I was learning, revised as best I could, and are most definitely imperfect.
+
 ## Table of Contents
 
 - [BT-Basic Notes](BT-Basic%20Notes.md)
