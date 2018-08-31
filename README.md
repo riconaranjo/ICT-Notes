@@ -15,3 +15,45 @@ In order to make the most of these notes you should have an understanding of the
 - [General Notes](General%20Notes.md)
 - [Part Descriptions](Part%20Descriptions.md)
 - [Tests Notes](Tests%20Notes.md)
+
+## Recommendations
+
+This test system uses text files for everything; this means this job is mostly text file manipulation. **I strongly suggest using a modern text editor**, especially [Visual Studio Code](https://code.visualstudio.com) because it allows for regex search and replace, multiline editing, and syntax folding [press <kbd>ctrl</kbd> + <kbd>k</kbd> followed by <kbd>ctrl</kbd> + <kbd>0</kbd> in the `board` file to see what I mean]. Runner ups: Sublime Text, Atom, Brackets.
+
+## VS Code
+
+VS Code also has the added benefit of easy viewing of markdown files [`.md`], the format which these notes were originally written in. If you open a `.md` file you can open a preview of the files and read them with all the syntax highlighing and formatting applied.
+
+If any changes need to be made to these notes, they can be made to the `.md` files, and with the `Markdown PDF` extension they can be exported to pdf, which may be the format you're reading these notes in.
+
+## Markdown
+
+These notes were writen using markdown, which is a simple language that allows you to format pages and documents, without having to know things like HTML.
+
+This is a quick reference:
+
+    # Title
+    ## Header 1
+    ### Header 2
+    #### Header 3
+    - bullet point layer 1
+      - bullet point layer 2
+        - bullet point layer 3
+    _This text is italicized_
+    *This text is also italicized*
+    **This text is bold**
+
+And this is what the above text will output.
+
+# Title
+## Header 1
+### Header 2
+#### Header 3
+- bullet point layer 1
+  - bullet point layer 2
+    - bullet point layer 3
+_This text is italicized_
+*This text is also italicized*
+**This text is bold**
+
+

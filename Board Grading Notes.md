@@ -115,6 +115,16 @@ In preshorts, many jumpers will be flagged either `N`, `F`, or `NF`. `N` means t
 
 Practically all the closed jumpers flagged in phase 1 board grading will have only the `N` flag. The standard procedure for this is to add 2.5 Ω to the limit. I created a script to do this automatically; all you should have to do is run each test, verify it passes, and mark it as permanent.
 
-### Opem Jumper
+### Open Jumper
 
 Open jumper tests will often have a threshold of 10 kΩ, but with a measurement of MΩ, sometimes negative MΩ. This is because of overflow, due to very large measurements. If the tests only have the `N` flag, and the tests pass when you run them, then you do not need to make any changes.
+
+## `bdg_results.pl` Script
+
+This perl script will go through the `bdg_data/`folder and the `.rpt` files.
+
+This script may not show any results for _Analog Incircuit Quality_. This is most like either due to the tests not being run or a script issue.
+
+To figure out if the tests were run, go in into the `bdg_data/ana_inc_qua.dat` file and make sure it is not empty; if it is empty, no analog incircuit tests were run. You will have to make sure you configured everything correctly, especially the vacuumm wells as the board grading testplan will have all the vacuum wells configurations together.
+
+Sometimes this file might not be empty, but the report does not show any tests. This may be due to a jumper test at the top of the `bdg_data/ana_inc_qua.rpt` file, which the perl script understands as the only test (since this test should not have been there). You can fix this issue by deleting this section of the report and rerunning `bdy_results.pl`.
