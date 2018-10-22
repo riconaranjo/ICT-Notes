@@ -33,27 +33,47 @@ These notes were writen using markdown, which is a simple language that allows y
 This is a quick reference:
 
     # Title
+
     ## Header 1
+
     ### Header 2
+
     #### Header 3
+
     - bullet point layer 1
       - bullet point layer 2
         - bullet point layer 3
+
     _This text is italicized_
+
     *This text is also italicized*
+
     **This text is bold**
+
+    [this is a link](www.google.ca)
+
+    ![this is an image](img/guard.jpg)
 
 And this is what the above text will output.
 
 # Title
+
 ## Header 1
+
 ### Header 2
+
 #### Header 3
+
 - bullet point layer 1
   - bullet point layer 2
     - bullet point layer 3
+
 _This text is italicized_
+
 *This text is also italicized*
+
 **This text is bold**
 
+[this is a link](www.google.ca)
 
+![this is an image](img/guard.jpg)
